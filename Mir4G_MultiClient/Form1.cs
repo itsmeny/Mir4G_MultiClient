@@ -21,13 +21,17 @@ namespace Mir4G_MultiClient
 
         [DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+        string gArgs;
+        string[] ClientIndex = null;
         private void refresh_btn_Click(object sender, EventArgs e)
         {
             Process[] pMir4G = Process.GetProcessesByName("Mir4G");
+            gArgs = "";
             processView.Items.Clear();
             foreach (var p in pMir4G)
             {
@@ -37,9 +41,9 @@ namespace Mir4G_MultiClient
                 pList.SubItems.Add(p.MainWindowTitle);
                 pList.SubItems.Add(GetExecutablePath(p.Id));
                 pList.SubItems.Add(pArguments[2]);
+                ClientIndex = pArguments[2].Split(' ');
                 processView.Items.Add(pList);
             }
-
         }
 
         private string GetExecutablePath(int processId)
@@ -61,7 +65,7 @@ namespace Mir4G_MultiClient
 
         private void ปดToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Process.GetProcessById(int.Parse(processView.SelectedItems[0].Text)).Kill();
         }
 
         private void เรยกToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,5 +86,21 @@ namespace Mir4G_MultiClient
                 menu.Items[1].Enabled = false;
             }
         }
+
+        private async void new_client_btn_Click(object sender, EventArgs e)
+        {
+            ClientIndex[7] = String.Format("-ClientIndex={0}", client_idx.Text);
+            foreach (string idx in ClientIndex)
+            {
+                gArgs += idx + " ";
+            }
+
+            ProcessStartInfo startMir4G = new ProcessStartInfo(GetExecutablePath(Process.GetProcessesByName("Mir4G")[0].Id));
+            startMir4G.Arguments = gArgs;
+            Process.Start(startMir4G);
+            await Task.Delay(1000);
+            refresh_btn.PerformClick();
+        }
+
     }
 }

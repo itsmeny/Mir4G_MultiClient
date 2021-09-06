@@ -34,17 +34,20 @@ namespace Mir4G_MultiClient
             this.processView = new System.Windows.Forms.ListView();
             this.pid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.win_title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.file_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.file_arguments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.file_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.เรยกToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ปดToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.new_client_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.client_idx = new System.Windows.Forms.TextBox();
             this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // refresh_btn
             // 
-            this.refresh_btn.Location = new System.Drawing.Point(938, 12);
+            this.refresh_btn.Location = new System.Drawing.Point(857, 12);
             this.refresh_btn.Name = "refresh_btn";
             this.refresh_btn.Size = new System.Drawing.Size(75, 23);
             this.refresh_btn.TabIndex = 1;
@@ -81,15 +84,15 @@ namespace Mir4G_MultiClient
             this.win_title.Text = "Window Title";
             this.win_title.Width = 90;
             // 
-            // file_path
-            // 
-            this.file_path.Text = "Arguments";
-            this.file_path.Width = 400;
-            // 
             // file_arguments
             // 
             this.file_arguments.Text = "File Path";
             this.file_arguments.Width = 400;
+            // 
+            // file_path
+            // 
+            this.file_path.Text = "Arguments";
+            this.file_path.Width = 400;
             // 
             // menu
             // 
@@ -110,15 +113,46 @@ namespace Mir4G_MultiClient
             // ปดToolStripMenuItem
             // 
             this.ปดToolStripMenuItem.Name = "ปดToolStripMenuItem";
-            this.ปดToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ปดToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.ปดToolStripMenuItem.Text = "ปิดหน้าจอนี้";
             this.ปดToolStripMenuItem.Click += new System.EventHandler(this.ปดToolStripMenuItem_Click);
+            // 
+            // new_client_btn
+            // 
+            this.new_client_btn.Location = new System.Drawing.Point(938, 12);
+            this.new_client_btn.Name = "new_client_btn";
+            this.new_client_btn.Size = new System.Drawing.Size(75, 23);
+            this.new_client_btn.TabIndex = 5;
+            this.new_client_btn.Text = "+ เพิ่มจอ";
+            this.new_client_btn.UseVisualStyleBackColor = true;
+            this.new_client_btn.Click += new System.EventHandler(this.new_client_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ClientIndex: ";
+            // 
+            // client_idx
+            // 
+            this.client_idx.Location = new System.Drawing.Point(73, 12);
+            this.client_idx.Name = "client_idx";
+            this.client_idx.Size = new System.Drawing.Size(57, 20);
+            this.client_idx.TabIndex = 8;
+            this.client_idx.Text = "0";
+            this.client_idx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 298);
+            this.Controls.Add(this.client_idx);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.new_client_btn);
             this.Controls.Add(this.processView);
             this.Controls.Add(this.refresh_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -129,6 +163,7 @@ namespace Mir4G_MultiClient
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menu.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,6 +177,9 @@ namespace Mir4G_MultiClient
         private System.Windows.Forms.ContextMenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem เรยกToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ปดToolStripMenuItem;
+        private System.Windows.Forms.Button new_client_btn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox client_idx;
     }
 }
 
