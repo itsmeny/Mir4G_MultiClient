@@ -1,4 +1,4 @@
-# Mir4G_MultiClient
+# [Outdated!!!] Mir4G_MultiClient
 โปรแกรมจัดการหน้าจอเกมส์ Mir4G สำหรับเวอร์ชั่น PC
 - Multi Client สามารถเปิดเกมส์ Mir4G ได้หลายหน้าจอ โดยใช้ ClientIndex
 - สามารถเลือกแสดงหน้าจอ , ปิดหน้าจอของเกมส์ได้
